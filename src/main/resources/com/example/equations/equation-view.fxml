@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.equations.EquationController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+  </padding>
+
+  <Label text="Введіть математичне рівняння:"/>
+  <TextField fx:id="equationTextField" promptText="Наприклад, 2*x+5=17"/>
+
+  <Label text="Введіть корені рівняння (через кому):"/>
+  <TextField fx:id="rootsTextField" promptText="Наприклад, 3, 7, -1"/>
+
+  <Button text="Перевірити" onAction="#onCheckButtonClick"/>
+</VBox>
