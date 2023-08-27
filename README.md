@@ -53,10 +53,6 @@ mvn clean javafx:run
 
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ---
 
 Please note that you need to replace `'yourusername'` and `'yourpassword'` in the configuration with your actual MySQL credentials. Make sure you have set up your MySQL database with the necessary tables as mentioned in your code.
