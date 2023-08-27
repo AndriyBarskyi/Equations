@@ -35,6 +35,14 @@ public class EquationValidator {
         return matcher.matches();
     }
 
+    public static boolean isRootValid(String root) {
+        try {
+            double value = Double.parseDouble(root.trim());
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
 }
 
