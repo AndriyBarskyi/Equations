@@ -3,31 +3,24 @@ package com.example.equations;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.mariuszgromada.math.mxparser.License;
-
 import com.example.equations.database.EquationDAO;
 import com.example.equations.utils.AlertManager;
 
 import javafx.fxml.FXML;
-
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class EquationController {
 
+    private static final double DELTA = 1e-9;
     @FXML
     private TextField equationTextField;
-
     @FXML
     private TextField rootsTextField;
-
     @FXML
     private TextField rootSearchTextField;
-
     @FXML
     private ListView<String> equationListView;
-
-    private static final double DELTA = 1e-9;
 
     @FXML
     public void onCheckButtonClick() {
@@ -51,13 +44,15 @@ public class EquationController {
             }
 
             if (EquationDAO.equationExists(equation)) {
-                AlertManager.showErrorAlert("Рівняння з таким виразом вже існує.");
+                AlertManager.showErrorAlert(
+                    "Рівняння з таким виразом вже існує.");
                 return;
             }
 
             try {
                 EquationDAO.insertEquationAndRoots(equation, roots);
-                AlertManager.showInfoAlert("Успіх", "Вираз був успішно доданий.");
+                AlertManager.showInfoAlert("Успіх",
+                    "Вираз був успішно доданий.");
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new RuntimeException(e);
@@ -83,7 +78,8 @@ public class EquationController {
 
     private boolean validateEquation(String equation) {
         if (!EquationValidator.isParenthesesValid(equation)) {
-            AlertManager.showErrorAlert("Некоректне розміщення дужок у рівнянні.");
+            AlertManager.showErrorAlert(
+                "Некоректне розміщення дужок у рівнянні.");
             return false;
         }
 
@@ -105,8 +101,10 @@ public class EquationController {
     }
 
     private boolean isRootValidForEquation(String equation, double root) {
-        if (Math.abs(EquationSolver.calculateEquationValue(equation, root)) > DELTA) {
-            AlertManager.showErrorAlert("Число " + root + " не є коренем для цього рівняння.");
+        if (Math.abs(EquationSolver.calculateEquationValue(equation, root))
+            > DELTA) {
+            AlertManager.showErrorAlert(
+                "Число " + root + " не є коренем для цього рівняння.");
             return false;
         }
         return true;

@@ -6,9 +6,6 @@ import java.util.Properties;
 
 public class DBConfig {
 
-    private DBConfig() {
-
-    }
     private static final String PROPERTIES_FILE = "db.properties";
     private static final Properties properties = new Properties();
 
@@ -20,6 +17,10 @@ public class DBConfig {
             e.printStackTrace();
             throw new RuntimeException("Failed to load database properties.");
         }
+    }
+
+    private DBConfig() {
+
     }
 
     public static String getDbUrl() {

@@ -11,6 +11,7 @@ public class EquationSolver {
     private EquationSolver() {
 
     }
+
     private static String convertEquation(String originalEquation) {
         String pattern = "([^=]+)=(.*)";
         Matcher matcher = Pattern.compile(pattern).matcher(originalEquation);
@@ -21,16 +22,16 @@ public class EquationSolver {
 
             return leftPart + "-1*(" + rightPart + ")";
         } else {
-            throw new IllegalArgumentException("Некоректне рівняння: " + originalEquation);
+            throw new IllegalArgumentException(
+                "Некоректне рівняння: " + originalEquation);
         }
     }
 
-
-
-
-    public static double calculateEquationValue(String equation, double xValue) {
+    public static double calculateEquationValue(String equation,
+        double xValue) {
         Argument argument = new Argument("x = " + xValue);
-        Expression expression = new Expression(convertEquation(equation), argument);
+        Expression expression =
+            new Expression(convertEquation(equation), argument);
         return expression.calculate();
     }
 
