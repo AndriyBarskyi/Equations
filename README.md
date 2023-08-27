@@ -4,7 +4,7 @@ This Java application assists math teachers by providing a user interface for in
 
 ## Prerequisites
 
-- Java Development Kit (JDK) 17
+- Java Development Kit (JDK) 17 (https://gluonhq.com/products/javafx/)
 - MySQL database (with a pre-created database named 'equations')
 - Maven
 
