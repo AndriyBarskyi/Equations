@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EquationDAO {
 
@@ -22,6 +24,8 @@ public class EquationDAO {
             preparedStatement.setString(1, equation);
             preparedStatement.setString(2, roots);
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            handleSQLException(e);
         }
     }
 
@@ -46,7 +50,7 @@ public class EquationDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            handleSQLException(e);
         }
         return equations;
     }
@@ -64,11 +68,12 @@ public class EquationDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            handleSQLException(e);
         }
         return false;
     }
 
+    private static void handleSQLException(SQLException e) {
+        Logger.getLogger(EquationDAO.class.getName()).log(Level.SEVERE, null, e);
+    }
 }
-
