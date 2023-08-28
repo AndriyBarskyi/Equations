@@ -1,6 +1,9 @@
 package com.example.equations;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.example.equations.database.DatabaseInitializer;
 
@@ -11,7 +14,11 @@ import javafx.stage.Stage;
 
 public class EquationApplication extends Application {
     public static void main(String[] args) {
-        DatabaseInitializer.createTables();
+        try {
+            DatabaseInitializer.createTables();
+        } catch (SQLException e) {
+            Logger.getLogger(DatabaseInitializer.class.getName()).log(Level.SEVERE, null, e);
+        }
         launch();
     }
 

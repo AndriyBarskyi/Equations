@@ -10,7 +10,7 @@ public class DatabaseInitializer {
 
     }
 
-    public static void createTables() {
+    public static void createTables() throws SQLException {
         try (Connection connection = DatabaseManager.getConnection();
             Statement statement = connection.createStatement()) {
             String createTableQuery = "CREATE TABLE IF NOT EXISTS equations ("
@@ -19,8 +19,7 @@ public class DatabaseInitializer {
                 + "roots VARCHAR(255) NOT NULL);";
             statement.executeUpdate(createTableQuery);
         } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to create tables.");
+            throw new SQLException("Failed to create tables.");
         }
     }
 }

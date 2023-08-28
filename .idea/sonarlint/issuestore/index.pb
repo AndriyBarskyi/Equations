@@ -7,14 +7,7 @@ U
 mvnw.cmd,1\f\1f1763f358c257ea3515417352b82b0165647ad1
 e
 5src/test/java/com/example/equations/EquationTest.java,b\1\b1a03ded1f0015b34b604a8fc8d15d9915fc65ad
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 k
 ;src/main/java/com/example/equations/utils/AlertManager.java,5\3\538d0d429a1d52d14ada0f58cc831e78ea8b2c52
-q
-Asrc/main/java/com/example/equations/database/DatabaseManager.java,8\0\8076b9e20a950c518c8904893fcf41db89eb7ab4
-j
-:src/main/java/com/example/equations/database/DBConfig.java,3\2\3207239b18cca40f46b926af10bccdf97186ba24
 m
 =src/main/java/com/example/equations/database/EquationDAO.java,6\a\6a5c5594c2e4a33e71af0474e089caa6f198d5a8

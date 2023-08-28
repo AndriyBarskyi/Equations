@@ -3,10 +3,12 @@ package com.example.equations.database;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DBConfig {
 
-    private static final String PROPERTIES_FILE = "db.properties";
+    private static final String PROPERTIES_FILE = "database.properties";
     private static final Properties properties = new Properties();
 
     static {
@@ -14,8 +16,7 @@ public class DBConfig {
             .getResourceAsStream(PROPERTIES_FILE)) {
             properties.load(inputStream);
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to load database properties.");
+            Logger.getLogger(DBConfig.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 

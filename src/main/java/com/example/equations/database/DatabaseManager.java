@@ -6,20 +6,18 @@ import java.sql.SQLException;
 
 public class DatabaseManager {
 
-    // Параметри підключення до бази даних (змініть їх на ваші дані)
-    private static final String DB_URL =
-        "jdbc:mysql://localhost:3306/equations";
-    private static final String DB_USER = "MyUser";
-    private static final String DB_PASSWORD = "TeST-PaSSWoRD123!";
-    private static Connection connection;
     private DatabaseManager() {
-
     }
+
+    private static Connection connection;
+    private static final String DB_URL = DBConfig.getDbUrl();
+    private static final String DB_USER = DBConfig.getDbUsername();
+    private static final String DB_PASSWORD = DBConfig.getDbPassword();
+
 
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
-            connection =
-                DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
         }
         return connection;
     }
