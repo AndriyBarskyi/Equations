@@ -5,9 +5,7 @@ module com.example.equations {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    //requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires junit;
     requires java.sql;
     requires java.scripting;
     requires MathParser.org.mXparser;

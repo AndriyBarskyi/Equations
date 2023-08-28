@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 import org.mariuszgromada.math.mxparser.Argument;
 import org.mariuszgromada.math.mxparser.Expression;
+import org.mariuszgromada.math.mxparser.License;
 
 public class EquationSolver {
 
@@ -29,6 +30,7 @@ public class EquationSolver {
 
     public static double calculateEquationValue(String equation,
         double xValue) {
+        License.iConfirmNonCommercialUse("Andriy Barskyi");
         Argument argument = new Argument("x = " + xValue);
         Expression expression =
             new Expression(convertEquation(equation), argument);
